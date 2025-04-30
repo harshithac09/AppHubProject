@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home" />
+    <script src="https://kit.fontawesome.com/c332791a1f.js" crossorigin="anonymous"></script>
+    
+    <link rel="Stylesheet" href="./index.css"/>
+    <style>
+        /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f8fa;
+      color: #333;
+    }
+    
+    /* Header */
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #1e1e2f;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    .nav-links ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #e0e0e0;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: #00ffc8;
+    }
+    
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #ffffff;
+    }
+    
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+    
+    /* App Grid */
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      padding: 40px;
+    }
+    
+    /* App Card */
+    .app-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    
+    .app-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+    
+    .app-card h3 {
+      margin-bottom: 10px;
+    }
+    
+    .app-card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+    
+    .app-card button {
+      padding: 10px 20px;
+      background-color: #00c89c;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    .app-card button:hover {
+      background-color: #00a381;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1e1e2f;
+      color: white;
+      margin-top: 30px;
+    }
+    
+       </style>
+</head>
+<script>
+  function searchApps() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.getElementsByClassName('app-card');
+
+    for (let i = 0; i < cards.length; i++) {
+      const title = cards[i].querySelector('.app-title, h3').textContent.toLowerCase();
+      if (title.includes(input)) {
+        cards[i].style.display = 'block';
+      } else {
+        cards[i].style.display = 'none';
+      }
+    }
+  }
+</script>
+
+  
+<body>
+  <!-- Header/Navbar -->
+   <header>
+    <div class="container">
+      <nav class="main-nav">
+        <div class="logo">
+          <img src="../AppHub/logo.jpg" alt="logo"/>
+        </div>
+        <ul class="navlist">
+          <li><a href="#apps" class="active">All</a></li>
+          <li><a href="SocialMedia.html" target="_blank">Social Media</a></li>&nbsp;&nbsp;
+          <li><a href="Shopping.html" target="_blank">Shopping</a></li>
+          <li><a href="Movies.html" target="_blank">Movies</a></li>
+          <li><a href="Transpotation.html" target="_blank">Transport</a></li>
+          <li><a href="Food.html" target="_blank">Food</a></li>
+          
+        </ul>
+       
+        <div class="hamburger-menu">
+        <button 
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navlist"
+        aria-controls="navlist"
+        aria-expanded="false"
+        aria-label="Expand navigation">
+        <i class="fa-solid fa-bars"></i>
+        </button>
+        </div>
+      </nav>
+    </div>
+    <div class="collapse navbar-collapse bg-dark" id="navlist">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-text">
+      <h2>
+        Discover <em>App Hub</em> That Do More <br />With Less
+      </h2>
+      <div class="divider"></div>
+      <p>
+        App Hub offers a centralized platform for apps.Easy browsing, fast access, and simple publishing.Focus on lightweight, useful applications.
+      </p>
+    </div>
+  </section>
+  <section class="search-section">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search apps..."
+      onkeyup="searchApps()"
+    />
+  </section>
+  <main id="apps">
+    <div class="app-grid">
+
+      <!-- Example App Card -->
+      <div class="app-card">
+        <img src="https://img.freepik.com/free-vector/instagram-icon_1057-2227.jpg" alt="Instagram">
+        <h3>Instagram</h3>
+        <p>Connect through photos & reels instantly.</p>
+        <a href="https://www.instagram.com/" target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Another App -->
+      <div class="app-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" alt="Facebook">
+        <h3>Facebook</h3>
+        <p>Stay in touch with friends and communities.</p>
+        <a href="https://www.facebook.com" target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Add more app cards here -->
+      <div class="app-card">
+        <img src="../AppHub/twiter.avif" alt="Twitter">
+        <h3>Twitter</h3>
+        <p>Get updated with Twitter</p>
+        <a href="https://x.com/home" target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+      <div class="app-card">
+        <img src=" https://yt3.googleusercontent.com/CvgBA1ypUZNxOjiCX0l1V2FbAm7oSDPZE4YkMvkpT_4iLXQ3IXWVtBgWnznHxgtcUoj50TXqZA=s900-c-k-c0x00ffffff-no-rj       " alt="Instagram">
+        <h3>Netflix</h3>
+        <p>Unlimited Entertainment,Endless possibilities</p>
+        <a href=" https://www.netflix.com " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Another App -->
+      <div class="app-card">
+        <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFEI8MiQDCok91Gf-nU7JU7I6V0EYtvhrzmg&s" alt="Telegram">
+        <h3>Telegram</h3>
+        <p>Telegram will be free forever</p>
+        <a href="https://web.telegram.org/k/ " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Add more app cards here -->
+      <div class="app-card">
+        <img src=" https://play-lh.googleusercontent.com/bp4jknyVZ8yDKhER9thIS1p9MBeU2LABqBX-sO8uaL1h5_keqlgMUmXv-CjfRWaqKw     " alt="JioHotstar">
+        <h3>JioHotstar</h3>
+        <p>Every day a sport</p>
+        <a href="https://www.hotstar.com/in " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+      <div class="app-card">
+        <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXe2TyrlBaPIjRW3xA4hmZJwumx3yfajDnmQ&s   " alt="Flipkart">
+        <h3>Flipkart</h3>
+        <p>Where your wishes come true</p>
+        <a href="https://www.flipkart.com/ " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Another App -->
+      <div class="app-card">
+        <img src="https://1000logos.net/wp-content/uploads/2016/10/Amazon-Logo-2000.png   " alt="Amazon">
+        <h3>Amazon</h3>
+        <p>Empowering Dreams,Enriching Lives</p>
+        <a href=" https://www.amazon.com " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Add more app cards here -->
+      <div class="app-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Nykaa_New_Logo.svg/2560px-Nykaa_New_Logo.svg.png  " alt="Nykaa">
+        <h3>Nykaa</h3>
+        <p>Your beauty our passion</p>
+        <a href="https://www.nykaa.com " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+      <div class="app-card">
+        <img src="https://play-lh.googleusercontent.com/Zqv3j3gWCWrxuHW1VkRKNWso3beRsrwPCj58kG_Ile6iGGSf1YfkPYhKExXKY7_L0lU=s256-rw " alt="Zomato">
+        <h3>Zomato</h3>
+        <p>Never have a bed meal</p>
+        <a href=" https://www.zomato.com/ " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Another App -->
+      <div class="app-card">
+        <img src="https://1000logos.net/wp-content/uploads/2021/05/Swiggy-logo.png " alt="Swiggy">
+        <h3>Swiggy</h3>
+        <p>Taste meets speed-Swiggy</p>
+        <a href=" https://www.swiggy.com/ " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Add more app cards here -->
+      <div class="app-card">
+        <img src=" https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/McDonald%27s_square_2020.svg/960px-McDonald%27s_square_2020.svg.png   " alt="McDonald">
+        <h3>McDonald</h3>
+        <p>I'm Lovin It</p>
+        <a href="https://www.mcdonalds.com/ " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <div class="app-card">
+        <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlJIOGtHi6yLhWs9gI0Bz1T83KoUzuqCQ7IQ&s" alt="Uber">
+        <h3>Uber</h3>
+        <p>On our way</p>
+        <a href=" https://www.uber.com " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Another App -->
+      <div class="app-card">
+        <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7YUy-zS1QhowIo3DVj_oE6fA1V-fQYm6YwA&s    " alt="Ola">
+        <h3>Ola</h3>
+        <p>Let's Go</p>
+        <a href="https://www.olacabs.com " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+      <!-- Add more app cards here -->
+      <div class="app-card">
+        <img src="https://animationvisarts.com/wp-content/uploads/2023/10/Rapido.png " alt="Rapido">
+        <h3>Rapido</h3>
+        <p>Never too far</p>
+        <a href="https://www.rapido.bike/ " target="_blank">
+          <button>LAUNCH</button>
+        </a>
+      </div>
+
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 APP HUB. Made with ❤️ for Hackathons.</p>
+  </footer>
+    </body>
+    </html>
+    
